@@ -1,0 +1,45 @@
+{
+    "kind": "collectionType",
+    "collectionName": "industries",
+    "info": {
+        "singularName": "industry",
+        "pluralName": "industries",
+        "displayName": "Industry"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {
+        "i18n": {
+            "localized": true
+        }
+    },
+    "attributes": {
+        "title": {
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "maxLength": 40,
+            "required": true,
+            "unique": true
+        },
+        "description": {
+            "type": "text",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "maxLength": 250
+        },
+        "programs": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::program.program",
+            "mappedBy": "industry"
+        }
+    }
+}

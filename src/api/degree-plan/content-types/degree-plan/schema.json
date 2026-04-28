@@ -1,0 +1,122 @@
+{
+  "kind": "collectionType",
+  "collectionName": "degree_plans",
+  "info": {
+    "singularName": "degree-plan",
+    "pluralName": "degree-plans",
+    "displayName": "Degree Plan"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true,
+      "unique": true
+    },
+    "kuali_id": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true,
+      "unique": true
+    },
+    "program": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::program.program",
+      "inversedBy": "degree_plans"
+    },
+    "custom_override": {
+      "type": "boolean",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "certification_type": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "custom_override"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "campuses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::campus.campus",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "custom_override"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "months": {
+      "type": "integer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "custom_override"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "cost": {
+      "type": "integer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "custom_override"
+            },
+            true
+          ]
+        }
+      }
+    }
+  }
+}
