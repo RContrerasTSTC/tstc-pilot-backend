@@ -1,0 +1,65 @@
+{
+  "collectionName": "components_general_buttons",
+  "info": {
+    "displayName": "Button"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    },
+    "target": {
+      "type": "enumeration",
+      "default": "_blank",
+      "enum": [
+        "_blank",
+        "_self",
+        "_parent",
+        "_top"
+      ]
+    },
+    "variant": {
+      "type": "enumeration",
+      "default": "primary",
+      "enum": [
+        "primary",
+        "secondary",
+        "tertiary",
+        "link"
+      ]
+    },
+    "icon_position": {
+      "type": "enumeration",
+      "default": "hidden",
+      "enum": [
+        "hidden",
+        "left",
+        "right"
+      ]
+    },
+    "icon": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "!=": [
+            {
+              "var": "icon_position"
+            },
+            "hidden"
+          ]
+        }
+      }
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "config": {}
+}
